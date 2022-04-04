@@ -1,7 +1,15 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
+ */
+package testapp;
+
+import javax.swing.JOptionPane;
+import javax.swing.*;
 
 /**
  *
- * 
+ * Author: Kaylee Springer
  */
 public class MainScreen extends javax.swing.JFrame {
 
@@ -10,6 +18,15 @@ public class MainScreen extends javax.swing.JFrame {
      */
     public MainScreen() {
         initComponents();
+        
+        /*Written by Kaylee Springer*/
+        //String of Course Names
+        String[] courses = {"CMPSC-206 Web Applications 1", "CMPSC-306 Web Applications 2", "CMPSC-255 Introduction to Networks", "CMPSC-200 Virtual Worlds", "CMPSC-202 Programming I ", "CMPSC-203 Programming II", "CMPSC-345 Computer Systems & Organization", "CMPSC-311 Data Structures & Algorithms", "MATH-200 Discrete Mathematics", "RELST-266 Suffering & Death", "CMPSC-390 Software Engineering", "CMPSC-309 Issues in Computing", "BIOL-117 Exercise Physiology", "CMPSC-321 Databases", "ART-119 Digital Imagery", "Comms 221 Digital Video Production", "MATH-135 Introduction to Statistics", "ART-111 Intro to Film Analysis", "CMPSC-301 Operating Systems", "ART 220: Graphic Design II", "COMM-205 Mediated Message Production", "ART 322: Advertising in Marketing", "BIOL 213: Interactions in the Environment", "CMPSC-360 Usability and Design", "CHEM 331: Physical Chemistry", "PSYCH-101 Introduction to Psychology", "CHEM-111 General Chemistry", "MATH 202: Calculus with Analytic Geometry", "HIST-103 U.S. History to 1877", "COMM 220: Digital Audio Production", "Psych-200 child development", "Psych-199 lifespan development", "Psych-204 abnormal psychology", "MKTG 355 Digital Marketing", "BIOL-206 microbiology", "MGMT 370 IT Management", "BIOL-202 Human Anatomy", "ENGL 208: Study of Rhetoric", "BIOL-203 Human physiology", "CMPSC-260 Clojure"};
+        ClassList1.setModel(new DefaultComboBoxModel<>(courses));
+        
+        //String[] appointments = new String[5];
+        String[] appointments = {"No Appointments"};
+        AppointmentList.setModel(new DefaultComboBoxModel<>(appointments));
     }
 
     /**
@@ -26,18 +43,18 @@ public class MainScreen extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         jTabbedPane1 = new javax.swing.JTabbedPane();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jList1 = new javax.swing.JList<>();
+        ClassList1 = new javax.swing.JList<>();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jList2 = new javax.swing.JList<>();
-        jPanel3 = new javax.swing.JPanel();
+        AppointmentList = new javax.swing.JList<>();
+        Notifications = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
-        jPanel4 = new javax.swing.JPanel();
-        jLabel6 = new javax.swing.JLabel();
+        BottomAppointment = new javax.swing.JPanel();
+        BottomAppoint = new javax.swing.JLabel();
         jPanel5 = new javax.swing.JPanel();
-        jLabel7 = new javax.swing.JLabel();
+        BottomClass = new javax.swing.JLabel();
+        ClassButton = new javax.swing.JButton();
+        AppointmentButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -92,81 +109,78 @@ public class MainScreen extends javax.swing.JFrame {
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 10, 640, -1));
         getContentPane().add(jTabbedPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 380, -1, -1));
 
-        jLabel1.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
-        jLabel1.setText("Classes:");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 150, -1, -1));
-
-        jLabel2.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
-        jLabel2.setText("Appointments:");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 320, -1, -1));
-
-        jList1.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-            public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
-        });
-        jScrollPane1.setViewportView(jList1);
+        jScrollPane1.setViewportView(ClassList1);
 
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 190, 360, 110));
 
-        jList2.setModel(new javax.swing.AbstractListModel<String>() {
+        AppointmentList.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
         });
-        jScrollPane2.setViewportView(jList2);
+        jScrollPane2.setViewportView(AppointmentList);
 
         getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 360, 360, 120));
 
-        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
+        Notifications.setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel5.setText("Notifications");
 
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
+        javax.swing.GroupLayout NotificationsLayout = new javax.swing.GroupLayout(Notifications);
+        Notifications.setLayout(NotificationsLayout);
+        NotificationsLayout.setHorizontalGroup(
+            NotificationsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(NotificationsLayout.createSequentialGroup()
                 .addGap(73, 73, 73)
                 .addComponent(jLabel5)
                 .addContainerGap(45, Short.MAX_VALUE))
         );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+        NotificationsLayout.setVerticalGroup(
+            NotificationsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, NotificationsLayout.createSequentialGroup()
                 .addContainerGap(28, Short.MAX_VALUE)
                 .addComponent(jLabel5)
                 .addContainerGap())
         );
 
-        getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 540, 200, 50));
+        getContentPane().add(Notifications, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 540, 200, 50));
 
-        jPanel4.setBackground(new java.awt.Color(255, 255, 255));
+        BottomAppointment.setBackground(new java.awt.Color(255, 255, 255));
 
-        jLabel6.setText("Appointments");
+        BottomAppoint.setText("Appointments");
+        BottomAppoint.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                BottomAppointKeyPressed(evt);
+            }
+        });
 
-        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
-        jPanel4.setLayout(jPanel4Layout);
-        jPanel4Layout.setHorizontalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel4Layout.createSequentialGroup()
+        javax.swing.GroupLayout BottomAppointmentLayout = new javax.swing.GroupLayout(BottomAppointment);
+        BottomAppointment.setLayout(BottomAppointmentLayout);
+        BottomAppointmentLayout.setHorizontalGroup(
+            BottomAppointmentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(BottomAppointmentLayout.createSequentialGroup()
                 .addGap(73, 73, 73)
-                .addComponent(jLabel6)
+                .addComponent(BottomAppoint)
                 .addContainerGap(79, Short.MAX_VALUE))
         );
-        jPanel4Layout.setVerticalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+        BottomAppointmentLayout.setVerticalGroup(
+            BottomAppointmentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, BottomAppointmentLayout.createSequentialGroup()
                 .addContainerGap(28, Short.MAX_VALUE)
-                .addComponent(jLabel6)
+                .addComponent(BottomAppoint)
                 .addContainerGap())
         );
 
-        getContentPane().add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 540, -1, -1));
+        getContentPane().add(BottomAppointment, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 540, -1, -1));
 
         jPanel5.setBackground(new java.awt.Color(255, 255, 255));
 
-        jLabel7.setText("Classes");
+        BottomClass.setText("Classes");
+        BottomClass.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                BottomClassMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
@@ -174,22 +188,82 @@ public class MainScreen extends javax.swing.JFrame {
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel5Layout.createSequentialGroup()
                 .addGap(73, 73, 73)
-                .addComponent(jLabel7)
+                .addComponent(BottomClass)
                 .addContainerGap(79, Short.MAX_VALUE))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
                 .addContainerGap(28, Short.MAX_VALUE)
-                .addComponent(jLabel7)
+                .addComponent(BottomClass)
                 .addContainerGap())
         );
 
         getContentPane().add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 540, 200, 50));
 
+        ClassButton.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
+        ClassButton.setText("Classes");
+        ClassButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ClassButtonActionPerformed(evt);
+            }
+        });
+        getContentPane().add(ClassButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 150, -1, -1));
+
+        AppointmentButton.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
+        AppointmentButton.setText("Appointments");
+        AppointmentButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AppointmentButtonActionPerformed(evt);
+            }
+        });
+        getContentPane().add(AppointmentButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 320, -1, -1));
+
         pack();
     }// </editor-fold>                        
 
+    
+    //This section of code was written By Kaylee Springer
+    /*********************************************************/
+    //Code to Move to Classes Page
+    private void ClassButtonActionPerformed(java.awt.event.ActionEvent evt) {                                            
+        // TODO add your handling code here:
+        //JOptionPane.showMessageDialog(rootPane, jList1.getSelectedValue());
+        //Opens Course Page
+        CourseScreen classScreen = new CourseScreen();
+        classScreen.show();//display CourseScreen
+        dispose(); //Close current fram after opening
+        
+    }                                           
+
+    private void AppointmentButtonActionPerformed(java.awt.event.ActionEvent evt) {                                                  
+        // TODO add your handling code here:
+        //Opens Course Page
+        AppointmentScreen appoint = new AppointmentScreen();
+        appoint.show();//display CourseScreen
+        dispose(); //Close current fram after opening
+        
+    }                                                 
+
+    private void BottomClassMouseClicked(java.awt.event.MouseEvent evt) {                                         
+        // TODO add your handling code here:
+        //Opens Course page from bottom tab
+        CourseScreen classScreen = new CourseScreen();
+        classScreen.show();//display CourseScreen
+        dispose(); //Close current fram after opening
+    }                                        
+
+    private void BottomAppointKeyPressed(java.awt.event.KeyEvent evt) {                                         
+        // TODO add your handling code here:
+        //Opens Appointment Page from bottom tab
+        AppointmentScreen appoint = new AppointmentScreen();
+        appoint.show();//display CourseScreen
+        dispose(); //Close current fram after opening
+    }                                        
+
+    
+    
+    /********************************************************/
     /**
      * @param args the command line arguments
      */
@@ -226,19 +300,19 @@ public class MainScreen extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify                     
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
+    private javax.swing.JButton AppointmentButton;
+    private javax.swing.JList<String> AppointmentList;
+    private javax.swing.JLabel BottomAppoint;
+    private javax.swing.JPanel BottomAppointment;
+    private javax.swing.JLabel BottomClass;
+    private javax.swing.JButton ClassButton;
+    private javax.swing.JList<String> ClassList1;
+    private javax.swing.JPanel Notifications;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JList<String> jList1;
-    private javax.swing.JList<String> jList2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
