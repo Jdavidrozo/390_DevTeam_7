@@ -40,6 +40,7 @@ public class MainScreen extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
+        logout = new java.awt.Button();
         jPanel2 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         jTabbedPane1 = new javax.swing.JTabbedPane();
@@ -59,18 +60,31 @@ public class MainScreen extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jPanel1.setBackground(new java.awt.Color(171, 198, 231));
         jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
 
         jLabel4.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel4.setText("Account");
+
+        logout.setActionCommand("Logout");
+        logout.setFont(new java.awt.Font("Arial", 0, 13)); // NOI18N
+        logout.setForeground(new java.awt.Color(255, 51, 51));
+        logout.setLabel("Logout");
+        logout.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                logoutActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(25, 25, 25)
-                .addComponent(jLabel4)
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(logout, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel4))
                 .addContainerGap(30, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -78,10 +92,14 @@ public class MainScreen extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(31, 31, 31)
                 .addComponent(jLabel4)
-                .addContainerGap(53, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 44, Short.MAX_VALUE)
+                .addComponent(logout, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
+        logout.getAccessibleContext().setAccessibleName("Logout");
+
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 110, 130));
 
         jPanel2.setBackground(new java.awt.Color(171, 198, 231));
         jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
@@ -94,24 +112,24 @@ public class MainScreen extends javax.swing.JFrame {
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(208, 208, 208)
+                .addGap(245, 245, 245)
                 .addComponent(jLabel3)
-                .addContainerGap(209, Short.MAX_VALUE))
+                .addContainerGap(182, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(41, 41, 41)
+                .addGap(37, 37, 37)
                 .addComponent(jLabel3)
-                .addContainerGap(43, Short.MAX_VALUE))
+                .addContainerGap(47, Short.MAX_VALUE))
         );
 
-        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 10, 640, -1));
+        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 10, 650, -1));
         getContentPane().add(jTabbedPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 380, -1, -1));
 
         jScrollPane1.setViewportView(ClassList1);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 190, 360, 110));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 220, 360, 110));
 
         AppointmentList.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
@@ -120,7 +138,7 @@ public class MainScreen extends javax.swing.JFrame {
         });
         jScrollPane2.setViewportView(AppointmentList);
 
-        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 360, 360, 120));
+        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 380, 360, 120));
 
         Notifications.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -208,7 +226,7 @@ public class MainScreen extends javax.swing.JFrame {
                 ClassButtonActionPerformed(evt);
             }
         });
-        getContentPane().add(ClassButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 150, -1, -1));
+        getContentPane().add(ClassButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 180, -1, -1));
 
         AppointmentButton.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
         AppointmentButton.setText("Appointments");
@@ -217,7 +235,7 @@ public class MainScreen extends javax.swing.JFrame {
                 AppointmentButtonActionPerformed(evt);
             }
         });
-        getContentPane().add(AppointmentButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 320, -1, -1));
+        getContentPane().add(AppointmentButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 340, -1, -1));
 
         pack();
     }// </editor-fold>                        
@@ -260,6 +278,13 @@ public class MainScreen extends javax.swing.JFrame {
         appoint.show();//display CourseScreen
         dispose(); //Close current fram after opening
     }                                        
+
+    private void logoutActionPerformed(java.awt.event.ActionEvent evt) {                                       
+        // TODO add your handling code here:
+        LoginScreen logout = new LoginScreen();
+        logout.show();//display CourseScreen
+        dispose(); //Close current fram after opening
+    }                                      
 
     
     
@@ -317,5 +342,6 @@ public class MainScreen extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTabbedPane jTabbedPane1;
+    private java.awt.Button logout;
     // End of variables declaration                   
 }
